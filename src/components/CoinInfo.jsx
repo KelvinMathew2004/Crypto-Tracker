@@ -25,7 +25,7 @@ const CoinInfo = ({ image, name, symbol }) => {
                 src={`https://www.cryptocompare.com${image}`}
                 alt={`Small icon for ${name} crypto coin`}
             />
-            {name}
+            {name} <span className="tab"></span>
             {price && price.USD ? ` $${price.USD} USD` : null}
         </li>
     )

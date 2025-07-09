@@ -1,6 +1,40 @@
 #root {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3rem;
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 75px;
+}
+
+.main-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+  border-bottom: 2px solid #ffffff;
+}
+
+.icons {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+.main-list:last-child {
+  border-bottom: none;
 }
