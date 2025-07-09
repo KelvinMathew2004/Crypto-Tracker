@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-h1 {
+.whole-page h1 {
   font-size: 3rem;
   font-weight: 700;
   color: #ffffff;
@@ -51,4 +51,22 @@ h1 {
 ul {
   list-style: none;
   margin: 25px 50px 75px 30px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #232323;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
