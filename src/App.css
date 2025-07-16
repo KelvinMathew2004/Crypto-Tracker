@@ -56,21 +56,27 @@ nav {
 
 .search-bar:focus {
     width: 40%;
-    background: rgba(178, 178, 178, 0.3);
+    background: rgba(160, 160, 160, 0.3);
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.main-list {
+.main-list a {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 5px;
+}
+
+.main-list {
+  display: flex;
   font-size: larger;
   padding: 25px;
+  margin-bottom: 5px;
   border-bottom: 3px solid #ffffff;
 }
 
-.main-list li:hover {
+.main-list:hover {
+  background-color: #222222;
   transform: scale(1.05);
 }
 
