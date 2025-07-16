@@ -27,23 +27,25 @@ function CoinDetail() {
         getCoinDetail().catch(console.error)
     }, [symbol])
 
+    if (!fullDetails.textData) return <div>Loading...</div>
+
     return (
-        <div>
-            <h1>{fullDetails.textData[params.symbol].FullName}</h1>
+        <div className="coin-detail-container">
+            <h1>{fullDetails.textData[symbol].FullName}</h1>
             <img
                 className="images"
                 src={`https://www.cryptocompare.com${
-                    fullDetails.numbers[params.symbol].USD.IMAGEURL
+                    fullDetails.numbers[symbol].USD.IMAGEURL
                 }`}
-                alt={`Small icon for ${params.symbol} crypto coin`}
+                alt={`Small icon for ${symbol} crypto coin`}
             />
-            <div> 
-                {fullDetails.textData[params.symbol].Description}
+            <div className="description"> 
+                {fullDetails.textData[symbol].Description}
             </div>
             <br></br>
-            <div>
+            <div style = {{ color: "#B0B0B0" }}>
                 This coin was built with the algorithm{" "}
-                {fullDetails.textData[params.symbol].Algorithm}{" "}
+                <a style={{ fontWeight: "bold" }}>{fullDetails.textData[symbol].Algorithm}{" "}</a>
             </div>
             <table>
                 <tbody> 
@@ -61,43 +63,43 @@ function CoinDetail() {
                     </tr>
                     <tr>
                         <th>Monetary Symbol </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.FROMSYMBOL}</td>
                     </tr>
                     <tr>
                         <th>Market </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.MARKET}</td>
                     </tr>
                     <tr>
                         <th>Last Transaction </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.LASTUPDATE}</td>
                     </tr>
                     <tr>
                         <th>Last Transaction Value</th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.LASTVOLUMETO} {fullDetails.numbers[symbol].USD.LASTVOLUME}</td>
                     </tr>
                     <tr>
                         <th>Volume </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.VOLUME24HOURTO}</td>
                     </tr>
                     <tr>
                         <th>Today's Open Price </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.OPENDAY}</td>
                     </tr>
                     <tr>
                         <th>Highest Price during the Day </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.HIGHDAY}</td>
                     </tr>
                     <tr>
                         <th>Lowest Price during the Day </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.LOWDAY}</td>
                     </tr>
                     <tr>
                         <th>Change from Previous Day </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.CHANGEDAY}</td>
                     </tr>
                     <tr>
                         <th>Market Cap </th>
-                        <td> </td>
+                        <td>{fullDetails.numbers[symbol].USD.MKTCAP}</td>
                     </tr>
                 </tbody>
             </table>

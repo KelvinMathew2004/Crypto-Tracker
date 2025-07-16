@@ -46,6 +46,7 @@ function App() {
           type="text"
           placeholder="Search..."
           onChange={(inputString) => searchItems(inputString.target.value)}
+          className='search-bar'
         />
         <ul>
           {searchInput.length > 0
