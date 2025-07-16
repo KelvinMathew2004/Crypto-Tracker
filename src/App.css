@@ -7,6 +7,20 @@
   text-align: center;
 }
 
+nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  background: #1d1f1d;
+  margin: 20px 30px;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
 .whole-page h1 {
   font-size: 3rem;
   font-weight: 700;
