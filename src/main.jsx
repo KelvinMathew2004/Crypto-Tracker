@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from './routes/Layout'
+import DetailView from './routes/DetailView'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/" element={<Layout />}>
         <Route index element={<App />} />
       </Route>
+      <Route path="/coinDetails/:symbol" element={<DetailView />} />
     </Routes>
   </BrowserRouter>
 )
