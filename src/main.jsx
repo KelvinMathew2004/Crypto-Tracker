@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Layout from './routes/Layout'
 import DetailView from './routes/DetailView'
+import NotFound from './routes/NotFound'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
         <Route index element={<App />} />
         <Route path="/coinDetails/:symbol" element={<DetailView />} />
       </Route>
+      <Route path="*" element={ <NotFound /> } />
     </Routes>
   </BrowserRouter>
 )
