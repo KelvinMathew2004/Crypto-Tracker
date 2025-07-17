@@ -41,14 +41,14 @@ function App() {
     <div>
       <div className="whole-page">
         <SideNav />
-        <h1>My Crypto List</h1>
+        <h1>Crypto Tracker</h1>
         <input
           type="text"
           placeholder="Search..."
           onChange={(inputString) => searchItems(inputString.target.value)}
           className='search-bar'
         />
-        <ul>
+        <ul className='complete-list'>
           {searchInput.length > 0
             ? filteredResults
                 .map((coin) => {
