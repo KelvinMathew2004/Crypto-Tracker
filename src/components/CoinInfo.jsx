@@ -6,33 +6,48 @@ const CoinInfo = ({ image, name, symbol }) => {
     const [price, setPrice] = useState(null)
 
     useEffect(() => {
-        const getCoinPrice = async () => {
-            const response = await fetch(
-                `https://min-api.cryptocompare.com/data/price?fsym=${symbol}&tsyms=USD&api_key=` +
-                API_KEY
-            )
+        const controller = new AbortController()
 
-            const json = await response.json()
-            setPrice(json)
+        const getCoinPrice = async () => {
+            try {
+                const response = await fetch(
+                    `https://min-api.cryptocompare.com/data/price?fsym=${symbol}&tsyms=USD&api_key=` +
+                        API_KEY,
+                    { signal: controller.signal }
+                )
+                const json = await response.json()
+                setPrice(json)
+            } catch (error) {
+                if (error.name === "AbortError") {
+                    // It's ok, don't do anything
+                } else {
+                    console.error(error)
+                }
+            }
         }
 
-        getCoinPrice().catch(console.error)
+        getCoinPrice()
+        return () => controller.abort()
     }, [symbol])
 
     return (
         <li className="main-list" key={symbol}>
             <Link
-                style={{ color: "White", textDecoration: "none" }}
                 to={`/coinDetails/${symbol}`}
                 key={symbol}
+                className="linked-coin-info"
             >
-                <img
-                    className="icons"
-                    src={`https://www.cryptocompare.com${image}`}
-                    alt={`Small icon for ${name} crypto coin`}
-                />
-                {name} <span className="tab"></span>
-                {price && price.USD ? ` $${price.USD} USD` : null}
+                <div className="coin-identity">
+                    <img
+                        className="icons"
+                        src={`https://www.cryptocompare.com${image}`}
+                        alt={`Small icon for ${name} crypto coin`}
+                    />
+                    {name}
+                </div>
+                <span>
+                    {price && price.USD ? ` $${price.USD} USD` : null}
+                </span>
             </Link>
         </li>
     )
