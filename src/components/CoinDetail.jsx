@@ -1,5 +1,6 @@
 import { Component, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import CoinChart from "./CoinChart"
 const API_KEY = import.meta.env.VITE_APP_API_KEY
 
 function CoinDetail() {
@@ -103,6 +104,10 @@ function CoinDetail() {
                     </tr>
                 </tbody>
             </table>
+            <CoinChart
+                symbol={symbol}
+                market={fullDetails.numbers[symbol].USD.MARKET}
+            />
         </div>
     )
 }

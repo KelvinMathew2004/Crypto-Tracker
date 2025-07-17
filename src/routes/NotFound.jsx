@@ -8,7 +8,6 @@ function NotFound(){
         <Link className="not-found-button" to="/">
             Back to Home
         </Link>
-        <Outlet />
     </div>
   )
 }
