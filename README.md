@@ -34,9 +34,7 @@ Crypto Tracker is a React web app that brings real-time cryptocurrency data to y
 
 > [Live Demo](https://crypto-know-it-all.netlify.app/)
 
-- ✅ Home page showing all coins.
-- ✅ Detail page for a coin (e.g., `/coin/404Coin`).
-- ✅ Custom 404 page for invalid routes.
+![Crypto Know It All Walkthrough](./Walkthrough.gif)
 
 ---
 
